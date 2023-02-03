@@ -1,0 +1,29 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+{% for product in collections.all.products %}
+  <div class="single-product" data-aos="zoom-out-right">
+    {% if product.compare_at_price > 0 %}
+      <div class="sale">Sale</div>
+    {% endif %}
+    <img
+      src="{{ product.featured_image | img_url: 'large' }}"
+      class="product-thumbnail"
+      alt="{{ featured_image.alt | escape }}" />
+    <div class="rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half-alt"></i>
+    </div>
+    <h4>{{ product.title }}</h4>
+    <h4 class="price">
+      <s>৳{{ product.compare_at_price }}</s>
+      ৳{{ product.price }}
+    </h4>
+    <button>
+      <i class="far fa-cart-plus"></i>
+    </button>
+  </div>
+{% endfor %}
