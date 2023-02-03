@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Hero Theme - {{ page_title }}
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{{ page_description | escape }}">
+    <link
+      rel="canonical"
+      href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    {{ content_for_header }}
+    <!-- Header hook for plugins -->
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'application.js' | asset_url | script_tag }}
+    {% style %}
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      button {
+        cursor: pointer;
+      }
+    {% endstyle %}
+  </head>
+  <body>
+    {% section "header" %}
+      <main role="main">
+      {% comment %} {{ content_for_layout }} {% endcomment %}
+      {% section "highlight" %}
+      {% section "deals" %}
+      {% section "service" %}
+      {% section "latest" %}
+      {% section "sponsor" %}
+      {% section "about" %}
+      {% section "newsletter" %}
+    </main>
+    {% section "footer" %}
+    {% section "copyright" %}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
+
+{% comment %} {% if shop.customer_accounts_enabled %}
+{% if customer %}
+<a href="/account">account</a>
+{{ 'log out' | customer_logout_link }}
+{% else %}
+{{ 'log in ' | customer_login_link }}
+{{ 'register' | customer_register_link }}
+{% endif %}
+{% endif %} {% endcomment %}{% comment %} {{ content_for_layout }} {% endcomment %}

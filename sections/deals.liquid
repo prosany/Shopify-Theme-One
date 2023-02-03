@@ -1,0 +1,55 @@
+<section class="deals-section">
+  <div class="deals-body">
+    <div class="deals-texts" data-aos="fade-right">
+      <h1>{{ section.settings.best_deal_heading }}</h1>
+      <p>{{ section.settings.best_deal_description }}</p>
+      {% if section.settings.best_deal_button == true %}
+        <button>{{ section.settings.best_deal_button_text }}</button>
+      {% endif %}
+
+    </div>
+    <div class="deals-product-image" data-aos="fade-left">
+      <img src="{{ section.settings.best_deal_image.src | img_url: 'master' }}" alt="" />
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Best Deals",
+    "settings": [
+      {
+        "type": "text",
+        "id": "best_deal_heading",
+        "label": "Heading",
+        "default": "Best Deal Of The Day",
+        "info": "Heading of the session"
+      },
+      {
+        "type": "textarea",
+        "id": "best_deal_description",
+        "label": "Deal Description",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maiores consequatur amet, alias deleniti odit. Beatae voluptas quas veniam facilis ullam error, ipsa aperiam dolor magnam, ipsam illo fugiat aliquid!",
+        "info": "Write your description"
+      },
+      {
+        "type": "checkbox",
+        "id": "best_deal_button",
+        "label": "Display Button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "best_deal_button_text",
+        "label": "Button Text",
+        "default": "VIEW MORE",
+        "info": "Label Your Button"
+      }, {
+        "type": "image_picker",
+        "id": "best_deal_image",
+        "label": "Choose Image",
+        "info": "Choose Image To Set Right"
+      }
+    ]
+  }
+{% endschema %}

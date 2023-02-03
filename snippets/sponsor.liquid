@@ -1,0 +1,7 @@
+{% for sponsor in section.blocks %}
+  <img
+    src="{{ sponsor.settings.sponsor_brand_logo.src | img_url: 'master' }}"
+    data-aos="zoom-in"
+    data-aos-duration="1000"
+    alt="" />
+{% endfor %}

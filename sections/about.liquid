@@ -1,0 +1,53 @@
+<section class="about-section">
+  <div class="about-container">
+    {% include 'about-left' %}
+    {% include 'about-right' %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "About Us",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "about_image",
+        "label": "Choose One Image"
+      },
+      {
+        "type": "text",
+        "id": "about_icon",
+        "label": "Choose One Icon",
+        "default": "<i class='fas fa-play-circle'></i>"
+      },
+      {
+        "type": "text",
+        "id": "about_section_overview",
+        "default": "THE LATEST",
+        "label": "Choose One Section Overview"
+      },
+      {
+        "type": "text",
+        "id": "about_heading",
+        "label": "Choose Heading",
+        "default": "Fabulous Products"
+      }, {
+        "type": "textarea",
+        "id": "about_description",
+        "label": "Choose Description",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque labore laboriosam maxime, odit laudantium cumque, est quia ducimus totam, consequuntur placeat fugiat ipsa modi? Saepe exercitationem perspiciatis voluptate? Ipsa, odio."
+      }, {
+        "type": "checkbox",
+        "id": "about_button",
+        "label": "Toggle About Button",
+        "default": true,
+        "info": "Note: This checkbox is responsible to display the button. If it's off the button will be hidden."
+      }, {
+        "type": "text",
+        "id": "about_button_text",
+        "label": "Choose About Button Text",
+        "default": "VIEW MORE"
+      }
+    ]
+  }
+{% endschema %}

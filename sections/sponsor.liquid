@@ -1,0 +1,24 @@
+<section class="sponsor-section">
+  {% include 'sponsor' %}
+</section>
+
+{% schema %}
+  {
+    "name": "Sponsor",
+    "tag": "section",
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Brand Logos",
+        "limit": 8,
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "Upload Brand Logo",
+            "id": "sponsor_brand_logo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

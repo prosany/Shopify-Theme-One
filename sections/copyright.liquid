@@ -1,0 +1,34 @@
+<div class="copyright">
+  <div class="copyright-container">
+    <p>{{ section.settings.copyright_text }}</p>
+    {% include 'copyright' %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Copyright",
+    "settings": [
+      {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright Text",
+        "default": "© 2023, Fabulous All Rights Reserved."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Single Payment Icon",
+        "limit": 10,
+        "settings": [
+          {
+            "type": "text",
+            "id": "copyright_icon",
+            "label": "Gateway Icon (FontAwesome Icon)"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

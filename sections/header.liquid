@@ -1,0 +1,75 @@
+{% style %}
+  header {
+    background-image: url("{{ section.settings.banner_logo.src | img_url: 'master' }}");
+  }
+{% endstyle %}
+
+<header>
+  <div class="hero-background">
+    {% include 'menu' %}
+    <div class="hero-highlights">
+      <h2
+        data-aos="flip-right"
+        data-aos-duration="500">{{ section.settings.heading_one }}</h2>
+      <h1 data-aos="flip-left" data-aos-duration="500">
+        {{ section.settings.heading_two }}
+
+      </h1>
+      <button
+        data-aos="flip-right"
+        data-aos-duration="500"
+        {% if section.settings.hero_button_color != blank %}
+        style="background-color: {{ section.settings.hero_button_color }}"
+        {% endif %}>
+        {{ section.settings.hero_button }}
+      </button>
+    </div>
+  </div>
+</header>
+
+
+{% schema %}
+  {
+    "name": "Main Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_logo",
+        "label": "Logo",
+        "default": "Fabulous"
+      },
+      {
+        "type": "link_list",
+        "id": "navigation_links",
+        "label": "Navigation Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_logo",
+        "label": "Hero Background Image"
+      },
+      {
+        "type": "text",
+        "id": "heading_one",
+        "label": "Heading One",
+        "default": "Fabulous"
+      }, {
+        "type": "text",
+        "id": "heading_two",
+        "label": "Heading Two",
+        "default": "HIGH PROTEIN <br /> SUPPLEMENTS"
+      }, {
+        "type": "text",
+        "id": "hero_button",
+        "label": "Hero Button",
+        "default": "SHOP NOW"
+      }, {
+        "type": "color",
+        "id": "hero_button_color",
+        "label": "Hero Button Color",
+        "default": "#e23b3b"
+      }
+    ]
+  }
+{% endschema %}

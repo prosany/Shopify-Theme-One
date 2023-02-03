@@ -1,0 +1,17 @@
+<div
+  class="about-text"
+  data-aos="flip-right"
+  data-aos-duration="500">
+  <p class="the-products">{{ section.settings.about_section_overview }}</p>
+  <h1>{{ section.settings.about_heading }}</h1>
+  <div class="hr" style="text-align: left"></div>
+  <p
+    class="about-description">
+    {{ section.settings.about_description }}
+  </p>
+  {% if section.settings.about_button == true %}
+    <button class="about-button">
+      {{ section.settings.about_button_text }}</button>
+  {% endif %}
+
+</div>

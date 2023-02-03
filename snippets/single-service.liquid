@@ -1,0 +1,14 @@
+<div class="services">
+  {% for service in section.blocks %}
+    <div
+      class="service-highlight"
+      data-aos="flip-up"
+      data-aos-duration="1000">
+      <div>
+        {{ service.settings.service_icon }}
+      </div>
+      <h3>{{ service.settings.service_card }}</h3>
+      <p>{{ service.settings.service_description }}</p>
+    </div>
+  {% endfor %}
+</div>

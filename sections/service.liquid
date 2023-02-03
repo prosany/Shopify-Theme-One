@@ -1,0 +1,49 @@
+<section class="service-section">
+  <p class="the-products">{{ section.settings.section_tag }}</p>
+  <h1>{{ section.settings.section_heading }}</h1>
+  <div class="hr"></div>
+  {% include 'single-service' %}
+</section>
+
+{% schema %}
+  {
+    "name": "Service Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_tag",
+        "label": "Service Tag",
+        "default": "THE PRODUCTS",
+        "info": "Service Tag Showen in the Top"
+      }, {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Service Heading",
+        "default": "Our Services",
+        "info": "Service Page Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Single Card",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "text",
+            "id": "service_icon",
+            "label": "Service Icon (FontAwesome Icon)"
+          }, {
+            "type": "text",
+            "id": "service_card",
+            "label": "Service Name"
+          }, {
+            "type": "textarea",
+            "id": "service_description",
+            "label": "Service Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

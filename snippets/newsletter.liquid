@@ -1,0 +1,24 @@
+<div
+  class="newsletter-left"
+  data-aos="fade-right"
+  data-aos-duration="500">
+  <div class="newsletter-icon">
+    {{ section.settings.newsletter_icon }}
+  </div>
+  <div class="newsletter-text">
+    <h3>
+      {{ section.settings.newsletter_title }}</h3>
+    <p>
+      {{ section.settings.newsletter_description }}</p>
+  </div>
+</div>
+<div
+  class="newsletter-right"
+  data-aos="fade-left"
+  data-aos-duration="500">
+  <div class="newsletter-input">
+    <input type="text" placeholder=" {{ section.settings.newsletter_input_placeholder }}" />
+    <button>
+      {{ section.settings.newsletter_button }}</button>
+  </div>
+</div>

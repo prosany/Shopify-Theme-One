@@ -1,0 +1,49 @@
+{% if section.settings.newsletter_toggle == true %}
+  <section class="newsletter-section">
+    <div class="newsletter-container">
+      {% include 'newsletter' %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "newsletter_toggle",
+        "label": "Newsletter toggle",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "newsletter_icon",
+        "label": "Newsletter Icon",
+        "default": "<i class='fal fa-envelope-open-text'></i>"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Newsletter Title",
+        "default": "Join Our Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_description",
+        "label": "Newsletter Description",
+        "default": "Enter your email address and received news."
+      }, {
+        "type": "text",
+        "id": "newsletter_input_placeholder",
+        "label": "Newsletter Input placeholder",
+        "default": "Your Email"
+      }, {
+        "type": "text",
+        "id": "newsletter_button",
+        "label": "Subscribe Button",
+        "default": "Subscribe"
+      }
+    ]
+  }
+{% endschema %}

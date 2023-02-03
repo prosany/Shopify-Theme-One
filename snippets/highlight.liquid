@@ -1,0 +1,16 @@
+<div
+  class="highlight-cards"
+  data-aos="flip-right"
+  data-aos-duration="500">
+  {% for block in section.blocks %}
+    <div class="signle-highlight">
+      <div>
+        {{ block.settings.highlight_icon }}
+      </div>
+      <h3>{{ block.settings.highlight_card }}</h3>
+      <p>
+        {{ block.settings.highlight_description }}
+      </p>
+    </div>
+  {% endfor %}
+</div>

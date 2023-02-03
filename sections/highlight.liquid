@@ -1,0 +1,54 @@
+{% if section.settings.display_highlight != false %}
+  <section class="highlight-card">
+    <div
+      class="highlight-image"
+      data-aos="flip-left"
+      data-aos-duration="500">
+      <div class="highlight-overlay">
+        <img src="{{ section.settings.highlight_image.src | img_url: 'master' }}" alt="" />
+        <div class="overlay-effect"></div>
+      </div>
+    </div>
+    {% include 'highlight' %}
+  </section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Highlight Section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_highlight",
+        "label": "Display Highlight",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "highlight_image",
+        "label": "Highlight Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Single Card",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "text",
+            "id": "highlight_icon",
+            "label": "Card Icon (FontAwesome Icon)"
+          }, {
+            "type": "text",
+            "id": "highlight_card",
+            "label": "Card Name"
+          }, {
+            "type": "textarea",
+            "id": "highlight_description",
+            "label": "Card Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

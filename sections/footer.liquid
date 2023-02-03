@@ -1,0 +1,112 @@
+<footer>
+  <div class="footer-section">
+    {% include "footer-one" %}
+    <div class="your-account">
+      <h3>Your Account</h3>
+      <ul>
+        <li>Personal Info</li>
+        <li>Orders</li>
+        <li>Credit Slips</li>
+        <li>Addresses</li>
+        <li>My Wishlists</li>
+      </ul>
+    </div>
+    <div class="our-company">
+      <h3>Our Company</h3>
+      <ul>
+        <li>Legal Notice</li>
+        <li>Secure Payment</li>
+        <li>Contact Us</li>
+        <li>Sitmap</li>
+        <li>My Account</li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <div class="infos">
+        <div class="infos-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="infos-details">
+          <h4>Location</h4>
+          <p>4005 ABC Point, Bangladesh</p>
+        </div>
+      </div>
+      <div class="infos">
+        <div class="infos-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="infos-details">
+          <h4>Contact Us</h4>
+          <p>+8801234567890</p>
+        </div>
+      </div>
+      <div class="infos">
+        <div class="infos-icon">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <div class="infos-details">
+          <h4>Email</h4>
+          <p>mahabubsany1@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    class="drinking"
+    src="./assets/drinking.png"
+    alt="" />
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_logo",
+        "label": "Footer Logo",
+        "default": "Fabulous",
+        "info": "Note: Add Only Text Here"
+      }, {
+        "type": "textarea",
+        "id": "footer_description",
+        "label": "Footer Description",
+        "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum pariatur molestiae perferendis quis modi exercitationem!",
+        "info": "Write your description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Single Card",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "text",
+            "id": "service_icon",
+            "label": "Service Icon (FontAwesome Icon)"
+          }, {
+            "type": "text",
+            "id": "service_card",
+            "label": "Service Name"
+          }, {
+            "type": "textarea",
+            "id": "service_description",
+            "label": "Service Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "2 Column Image Tiles",
+        "category": "2 Column Image Tiles",
+        "blocks": [
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
