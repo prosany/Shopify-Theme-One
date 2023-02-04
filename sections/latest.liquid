@@ -3,7 +3,9 @@
   <h1>{{ section.settings.product_heading }}</h1>
   <div class="hr"></div>
   <div class="latest-products">
-    {% include "product" %}
+    {% for product in collections.all.products %}
+      {% include "product" %}
+    {% endfor %}
   </div>
   {% if section.settings.product_button == true %}
     <button class="view-all-product">{{ section.settings.product_button_text }}</button>
@@ -15,15 +17,24 @@
     "name": "Display Products",
     "settings": [
       {
+        "type": "header",
+        "content": "Section Configuration"
+      },
+      {
         "type": "text",
         "id": "product_title",
         "label": "Section Title",
         "default": "THE LATEST"
-      }, {
+      },
+      {
         "type": "text",
         "id": "product_heading",
         "label": "Product Heading",
         "default": "Fabulous Products"
+      },
+      {
+        "type": "header",
+        "content": "Button Control"
       }, {
         "type": "checkbox",
         "id": "product_button",

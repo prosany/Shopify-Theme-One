@@ -1,0 +1,74 @@
+<nav data-aos="flip-left" data-aos-duration="500">
+  <h1 class="logo">{{ section.settings.nav_logo }}</h1>
+  <ul class="nav-items">
+    {% for link in linklists[section.settings.navigation_links].links %}
+
+      {% if link.links != blank %}
+        <li>
+          {{ link.title }}
+          {% for badge in link.links %}
+            <span
+              class='
+              {% if badge.title == 'Sale' %}
+                badge bg-green
+              {% elsif badge.title == 'New' %}
+                badge bg-gray
+              {% else %}
+                badge bg-red
+              {% endif %}'>
+              {{ badge.title }}</span>
+          {% endfor %}
+        </li>
+      {% endif %}
+
+      {% if link.links == blank %}
+        <li>{{ link.title }}</li>
+      {% endif %}
+
+    {% endfor %}
+  </ul>
+  <div class="nav-actions">
+    <ul>
+      {% for block in section.blocks %}
+        {% include "quick-action" %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% schema %}
+  {
+    "name": "Navigation Menus",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nav_logo",
+        "label": "Logo",
+        "default": "Fabulous"
+      }, {
+        "type": "link_list",
+        "id": "navigation_links",
+        "label": "Navigation Menu",
+        "default": "main-menu"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Action Menu",
+        "type": "content",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "html",
+            "label": "Action Menu Icon",
+            "id": "action_menu"
+          }, {
+            "type": "url",
+            "label": "Action Menu Url",
+            "id": "action_menu_url"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

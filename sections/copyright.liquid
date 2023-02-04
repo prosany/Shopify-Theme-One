@@ -1,7 +1,11 @@
 <div class="copyright">
   <div class="copyright-container">
     <p>{{ section.settings.copyright_text }}</p>
-    {% include 'copyright' %}
+    <div>
+      {% for gateway in section.blocks %}
+        {% include 'copyright' %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 

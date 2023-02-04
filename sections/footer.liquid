@@ -1,26 +1,30 @@
 <footer>
   <div class="footer-section">
-    {% include "footer-one" %}
-    <div class="your-account">
-      <h3>Your Account</h3>
-      <ul>
-        <li>Personal Info</li>
-        <li>Orders</li>
-        <li>Credit Slips</li>
-        <li>Addresses</li>
-        <li>My Wishlists</li>
-      </ul>
+    <div class="footer-first">
+      <h1 class="logo">{{ section.settings.footer_logo }}</h1>
+      <p>
+        {{ section.settings.footer_description }}
+      </p>
+      <div class="social">
+        {% for social in section.blocks %}
+          {% include "footer-social-icon" %}
+        {% endfor %}
+      </div>
     </div>
-    <div class="our-company">
-      <h3>Our Company</h3>
-      <ul>
-        <li>Legal Notice</li>
-        <li>Secure Payment</li>
-        <li>Contact Us</li>
-        <li>Sitmap</li>
-        <li>My Account</li>
-      </ul>
-    </div>
+
+    {% for link in linklists[section.settings.footer_links].links %}
+      {% if link.links != blank %}
+        <div class="your-account">
+          <h3>{{ link.title }}</h3>
+          <ul>
+            {% for submenu in link.links %}
+              {% include 'footer-actions' %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+
     <div class="footer-contact">
       <div class="infos">
         <div class="infos-icon">
@@ -28,7 +32,7 @@
         </div>
         <div class="infos-details">
           <h4>Location</h4>
-          <p>4005 ABC Point, Bangladesh</p>
+          <p>{{ section.settings.footer_address }}</p>
         </div>
       </div>
       <div class="infos">
@@ -37,7 +41,7 @@
         </div>
         <div class="infos-details">
           <h4>Contact Us</h4>
-          <p>+8801234567890</p>
+          <p>{{ section.settings.footer_contact }}</p>
         </div>
       </div>
       <div class="infos">
@@ -46,15 +50,17 @@
         </div>
         <div class="infos-details">
           <h4>Email</h4>
-          <p>mahabubsany1@gmail.com</p>
+          <p>{{ section.settings.footer_email }}</p>
         </div>
       </div>
     </div>
   </div>
-  <img
-    class="drinking"
-    src="./assets/drinking.png"
-    alt="" />
+  {% if section.settings.footer_image_check == true %}
+    <img
+      class="drinking"
+      src="{{ section.settings.footer_image.src | img_url: 'master' }}"
+      alt="" />
+  {% endif %}
 </footer>
 
 {% schema %}
@@ -62,41 +68,70 @@
     "name": "Footer",
     "settings": [
       {
+        "type": "header",
+        "content": "Logo Section"
+      },
+      {
         "type": "text",
         "id": "footer_logo",
         "label": "Footer Logo",
         "default": "Fabulous",
         "info": "Note: Add Only Text Here"
-      }, {
+      },
+      {
         "type": "textarea",
         "id": "footer_description",
         "label": "Footer Description",
         "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum pariatur molestiae perferendis quis modi exercitationem!",
         "info": "Write your description"
+      },
+      {
+        "type": "header",
+        "content": "Footer Menus"
       }, {
-        "type": "liquid",
-        "id": "ok",
-        "label": "Ok"
+        "type": "link_list",
+        "id": "footer_links",
+        "label": "Footer Links",
+        "default": "footer"
+      }, {
+        "type": "header",
+        "content": "Location & Contacts"
+      }, {
+        "type": "text",
+        "label": "Address",
+        "id": "footer_address"
+      }, {
+        "type": "text",
+        "label": "Contact Information",
+        "id": "footer_contact"
+      }, {
+        "type": "text",
+        "label": "Email Address",
+        "id": "footer_email"
+      }, {
+        "type": "header",
+        "content": "Footer Side Image"
+      }, {
+        "type": "checkbox",
+        "label": "Display Image",
+        "id": "footer_image_check",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "label": "Pick a Image",
+        "id": "footer_image"
       }
     ],
     "blocks": [
       {
-        "type": "text",
-        "name": "Single Card",
-        "limit": 4,
+        "type": "contain",
+        "name": "Social Media",
+        "limit": 8,
         "settings": [
           {
-            "type": "text",
-            "id": "service_icon",
-            "label": "Service Icon (FontAwesome Icon)"
-          }, {
-            "type": "text",
-            "id": "service_card",
-            "label": "Service Name"
-          }, {
-            "type": "textarea",
-            "id": "service_description",
-            "label": "Service Description"
+            "type": "html",
+            "id": "social_icon",
+            "label": "Social Media Icon (FontAwesome Icon)"
           }
         ]
       }

@@ -1,5 +1,7 @@
 <section class="sponsor-section">
-  {% include 'sponsor' %}
+  {% for sponsor in section.blocks %}
+    {% include 'sponsor' %}
+  {% endfor %}
 </section>
 
 {% schema %}

@@ -30,12 +30,19 @@
       button {
         cursor: pointer;
       }
+      header {
+        background-image: url("{{ section.settings.banner_logo.src | img_url: 'master' }}");
+      }
     {% endstyle %}
   </head>
   <body>
-    {% section "header" %}
-      <main role="main">
-      {% comment %} {{ content_for_layout }} {% endcomment %}
+    <header>
+      <div class="hero-background">
+        {% section "menu-section" %}
+        {% section "header" %}
+      </div>
+    </header>
+    <main role="main">
       {% section "highlight" %}
       {% section "deals" %}
       {% section "service" %}
@@ -53,13 +60,3 @@
     </script>
   </body>
 </html>
-
-{% comment %} {% if shop.customer_accounts_enabled %}
-{% if customer %}
-<a href="/account">account</a>
-{{ 'log out' | customer_logout_link }}
-{% else %}
-{{ 'log in ' | customer_login_link }}
-{{ 'register' | customer_register_link }}
-{% endif %}
-{% endif %} {% endcomment %}{% comment %} {{ content_for_layout }} {% endcomment %}

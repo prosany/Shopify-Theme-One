@@ -2,7 +2,12 @@
   <p class="the-products">{{ section.settings.section_tag }}</p>
   <h1>{{ section.settings.section_heading }}</h1>
   <div class="hr"></div>
-  {% include 'single-service' %}
+  <div class="services">
+    {% for service in section.blocks %}
+      {% include 'single-service' %}
+    {% endfor %}
+  </div>
+
 </section>
 
 {% schema %}

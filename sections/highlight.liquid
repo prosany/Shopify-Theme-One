@@ -9,7 +9,14 @@
         <div class="overlay-effect"></div>
       </div>
     </div>
-    {% include 'highlight' %}
+    <div
+      class="highlight-cards"
+      data-aos="flip-right"
+      data-aos-duration="500">
+      {% for block in section.blocks %}
+        {% include 'highlight' %}
+      {% endfor %}
+    </div>
   </section>
 {% endif %}
 
